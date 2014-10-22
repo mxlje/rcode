@@ -7,3 +7,7 @@ development in general.
 
 Again, it’s in its early stages and will receive a lot more love in the
 coming days.
+
+## License
+
+This project is released under the [WTFPL](http://www.wtfpl.net/). Enjoy.
