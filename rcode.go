@@ -19,7 +19,7 @@ var (
 	validHTTPScheme, _ = regexp.Compile("^https?:\\/\\/")
 
 	errTooManyRedirects = errors.New(fmt.Sprintf("Stopped after %d redirects.", maxRedirectCount))
-	errNoURLGiven       = errors.New("Please provide a URL to check.")
+	errNoURLGiven       = errors.New("Usage: rcode http://example.com")
 )
 
 func init() {
