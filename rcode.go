@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"regexp"
@@ -15,14 +14,21 @@ const (
 )
 
 var (
-	url                 string
-	csvOutput           bool
-	validHTTPScheme, _  = regexp.Compile("^https?:\\/\\/")
+	url                string
+	csvOutput          bool
+	validHTTPScheme, _ = regexp.Compile("^https?:\\/\\/")
+
 	errTooManyRedirects = errors.New(fmt.Sprintf("Stopped after %d redirects.", maxRedirectCount))
+	errNoURLGiven       = errors.New("Please provide a URL to check.")
 )
 
 func init() {
 	// get URL from cli arguments and add scheme if not present
+	if len(os.Args) == 1 {
+		fmt.Println(errNoURLGiven)
+		os.Exit(1)
+	}
+
 	url = os.Args[1]
 	if valid := validHTTPScheme.MatchString(url); !valid {
 		url = "http://" + url
@@ -48,7 +54,8 @@ func main() {
 
 	resp, err := client.Do(req)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
+		os.Exit(1)
 	}
 
 	printResponse(resp)
