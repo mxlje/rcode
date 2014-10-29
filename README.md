@@ -46,4 +46,4 @@ $ rcode httpbin.org/redirect/1 --csv
 
 ## License
 
-This project is released under the [WTFPL](http://www.wtfpl.net/). Enjoy.
+See the `LICENSE` file for license info (it’s the MIT license).
