@@ -1,12 +1,21 @@
 # Response Code Chain Checker
 
-This is the first (and pretty rough) version of a command line utility
-to quickly display the response code and, if applicable, redirect chain
-of a URL. It can be really helpful for debugging or just sensible web
-development in general.
+The `rcode` CLI lets you see the raw response code and, if applicable, the
+redirect chain of a URL.
 
-Again, it’s in its early stages and will receive a lot more love in the
-coming days.
+## Installation
+
+Assuming you have a working Go environment and `GOPATH/bin` is in your
+`PATH`, install `rcode` with
+
+```shell
+go get github.com/mxlje/rcode
+```
+
+Alternatively you can grab the latest compiled version from the
+[releases section on GitHub][releases] and put it in your `PATH` by hand.
+
+  [releases]: https://github.com/mxlje/rcode/releases
 
 ## License
 
